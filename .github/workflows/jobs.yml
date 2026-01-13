@@ -1,0 +1,17 @@
+name : Dependant_boys 
+
+on: [push]
+
+jobs:
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: this_one_is_second 
+      - run: echo "this ran because the first one ran"
+  job1:
+    runs-on: ubuntu-latest
+    if: github.repository == 'octo-org/octo-repo-prod'
+    steps:
+      - name: this_one_is_first
+      - run : echo "Hello I am Here"
