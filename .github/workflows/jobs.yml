@@ -8,10 +8,10 @@ jobs:
     needs: job1
     steps:
       - name: this_one_is_second 
-      - run: echo "this ran because the first one ran"
+        run: echo "this ran because the first one ran"
   job1:
-    #if: github.repository == 'octo-org/octo-repo-prod'
+    if: github.repository == 'octo-org/octo-repo-prod'
     runs-on: ubuntu-latest
     steps:
       - name: this_one_is_first
-      - run: echo "Hello I am Here"
+        run: echo "Hello I am Here"
